@@ -6,23 +6,128 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário InfoIdeias</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <h2>Não encontrou o que procurava? <br>
-        Preencha o formulário e retornaremos o contato.
-    </h2>
-    <form>
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" required>
-        <label for="tel">Telefone:</label>
-        <input type="tel" id="tel" required> <br>
-        <label for="nascimento">Data de Nascimento:</label>
-        <input type="date" id="nascimento">
+<body class="bg-light">
+    <div class="container">
+        <div class="py-5 text-center">
+            <p class="lead">Não encontrou o que procurava? <br>
+                Preencha o formulário e retornaremos o contato.</p>
+        </div>
+
+
+        <form class="needs-validation" novalidate="">
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="" required="">
+                    <div class="invalid-feedback">
+                        Insira um nome válido
+                    </div>
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="email">Email</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="email" placeholder="email@example.com" required="">
+                        <div class="invalid-feedback" style="width: 100%;">
+                            Your username is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" class="form-control" id="telefone" placeholder="(00) 00000-0000" required="">
+                    <div class="invalid-feedback">
+                        Please enter your shipping address.
+                    </div>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="nascimento">Data de Nascimento</label>
+                    <input type="date" class="form-control" id="nascimento" placeholder="dd/mm/aaaa" required="">
+                    <div class="invalid-feedback">
+                        Please enter your shipping address.
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    <label for="country">Bairro de interesse</label>
+                    <select class="custom-select d-block w-100" id="country" required="">
+                        <option value="" selected="selected">Choose...</option>
+                        <option value="Centro">Centro</option>
+                        <option value="Bairro Novo">Bairro Novo</option>
+                        <option value="Bairro Velho">Bairro Velho</option>
+                        <option value="Centro Industrial">Centro Industrial</option>
+                        <option value="Jardim Central">Jardim Central</option>
+                        <option value="Vila Nova">Vila Nova</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid country.
+                    </div>
+                </div>
+
+            </div>
+            <hr class="mb-4">
+            <h4 class="mb-3">Período para contato</h4>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="manha">
+                <label class="custom-control-label" for="manha">MANHÃ</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="tarde">
+                <label class="custom-control-label" for="tarde">TARDE</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="noite">
+                <label class="custom-control-label" for="noite">NOITE</label>
+            </div>
+            <hr class="mb-4">
+
+            <h4 class="mb-3">Autoriza contato por telefone?</h4>
+
+            <div class="d-block my-3">
+                <div class="custom-control custom-radio">
+                    <input id="sim" name="autorizaContato" type="radio" class="custom-control-input" checked="checked"
+                        required="">
+                    <label class="custom-control-label" for="sim">Sim</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input id="nao" name="autorizaContato" type="radio" class="custom-control-input" required="">
+                    <label class="custom-control-label" for="nao">Não</label>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="d-block my-3">
+                <label for="nome">Informações adicionais</label>
+                <textarea class="form-control" name="adicionais" id="adicionais"></textarea>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar</button>
+        </form>
+    </div>
+    <!-- <form class="row">
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="tel">Telefone:</label>
+            <input type="tel" id="tel" required> <br>
+            <label for="nascimento">Data de Nascimento:</label>
+            <input type="date" id="nascimento">
+        </div>
         <label for="bairro">Bairro de interesse:</label>
         <select list="bairros" name="bairro">
             <datalist id="bairros">
@@ -38,13 +143,15 @@
         <br>
         <br>
 
-        <p>Período para contato:</p>
-        <input type="checkbox" id="manha" name="manha" value="Bike">
-        <label for="manha"> MANHÃ</label><br>
-        <input type="checkbox" id="tarde" name="tarde" value="Car">
-        <label for="tarde"> TARDE</label><br>
-        <input type="checkbox" id="noite" name="noite" value="Boat">
-        <label for="noite"> NOITE</label>
+        <div class="d-block">
+            <p>Período para contato:</p>
+            <input type="checkbox" id="manha" name="manha" value="Bike">
+            <label for="manha"> MANHÃ</label><br>
+            <input type="checkbox" id="tarde" name="tarde" value="Car">
+            <label for="tarde"> TARDE</label><br>
+            <input type="checkbox" id="noite" name="noite" value="Boat">
+            <label for="noite"> NOITE</label>
+        </div>
 
         <p>Autoriza contato por telefone?</p>
         <input type="radio" name="sim" id="sim"><label for="sim">Sim</label>
@@ -54,9 +161,19 @@
 
         <label for="adicionais">Informações adicionais:</label><br>
         <textarea name="adicionais" id="adicionais" cols="30" rows="10"></textarea>
-    </form>
+        <input type="button" value="Enviar" class="btn btn-primary">
+        </div>
+    </form> -->
 
-</html>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
