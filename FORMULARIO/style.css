@@ -1,10 +1,23 @@
-/* * {
-    background-color: black;
-    color: white;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
-form {
-    padding: 1rem;
+.frame {
+    background-color: #FFFFFF;
+    padding: 0 1rem 1rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 5px #cccccc;
 }
 
- */
+.btn-primary, .btn-primary:visited {
+    background-color: #274259;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    background-color: #F49431;
+}
